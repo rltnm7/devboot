@@ -1,0 +1,47 @@
+{
+    // Docker Composeファイル
+    "dockerComposeFile": "docker-compose.yml",
+    
+    // ログインするコンテナの指定
+    // docker-compose.ymlのサービス名を指定する
+    "service": "app",
+
+    // ログイン時の初期ディレクトリ
+    // VSCodeで開くディレクトリになる
+    "workspaceFolder": "/devboot",
+
+    // リモート接続を切断したときの動作
+    // Windowsだと何故か落ちない...
+    "shutdownAction": "stopCompose",
+
+    // リモート接続先で有効化するVSCode拡張機能
+    // 拡張機能のDetails画面右ペイン最下部に記載されているIdentifierを指定する
+    "extensions": [
+        // Extension Pack for Java
+        "vscjava.vscode-java-pack",
+        // Spring Boot Extension Pack
+        "pivotal.vscode-boot-dev-pack",
+        // Lombok Annotations Support for VS Code
+        "gabrielbb.vscode-lombok",
+        // SonarLint
+        "sonarsource.sonarlint-vscode",
+        // Checkstyle for Java
+        "shengchen.vscode-checkstyle",
+        // YAML
+        "redhat.vscode-yaml"
+    ],
+
+    // リモート接続先で上書きする基本設定 (settings.json)
+    "settings": {
+        // JAVA_HOME設定のオーバーライド
+        "java.jdt.ls.java.home": "/usr/local/openjdk-17",
+        "java.configuration.runtimes": [
+            {
+                "name":"JavaSE-17",
+                "path": "/usr/local/openjdk-17"
+            }
+        ],
+        "spring-boot.ls.java.home": "/usr/local/openjdk-17",
+        "sonarlint.ls.javaHome": "/usr/local/openjdk-17",
+    }
+}

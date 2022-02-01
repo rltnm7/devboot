@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>User List</title>
+    </head>
+    <body>
+        <ul>
+            <li th:each="user : ${users}">
+                <div th:object="${user}">
+                    <a href="index.html" th:href="@{/users/{username}(username=*{username})}">[[*{username}]]</a>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>

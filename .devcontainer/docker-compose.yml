@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    # Dockerfileからビルドしたコンテナイメージを利用
+    # AdoptOpenJDKのイメージにMavenを追加している
+    build: .
+
+    volumes:
+      # ソースコードリポジトリ
+      - ../:/devboot
+      # ホストのMavenローカルリポジトリ
+      - ${HOME}/.m2:/root/.m2
+
+    # Spring Bootのデフォルトポート
+    ports:
+      - "80:80"
+    
+    # コンテナの永続化
+    command: sleep infinity
+
+  db:
+    image: postgres:13.5-alpine3.15
+
+    # 初期ユーザとパスワードとDBを指定
+    environment:
+      - POSTGRES_USER=appusr01
+      - POSTGRES_PASSWORD=P@ssw0rd
+      - POSTGRES_DB=sample
+    
+    volumes:
+      # DBデータの永続化
+      - ../db/data:/var/lib/postgresql/data
+      # /docker-entrypoint-initdb.dにsqlファイルなどを配置すると
+      # 起動時にDBの初期化をしてくれる
+      - ../db/ddl:/docker-entrypoint-initdb.d

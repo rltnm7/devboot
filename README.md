@@ -93,6 +93,8 @@
 ./mvnw spring-boot:run
 ```
 
+接続先URL: http://localhost/users
+
 ### テスト
 
 ```sh
@@ -105,6 +107,8 @@
 ./mvnw clean package -Dmaven.test.skip=true
 java -jar target/devboot-${version}.jar
 ```
+
+接続先URL: http://localhost/users
 
 ## Reference
 

@@ -32,7 +32,7 @@ import com.example.devboot.service.UsersService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UsersControllerTest {
+class UsersControllerTest {
 
     @Autowired
     MockMvc mockMvc;

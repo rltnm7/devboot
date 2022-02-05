@@ -14,13 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MybatisTest
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
-public class UsersRepositoryTest {
-    
+class UsersRepositoryTest {
+
     @Autowired
     private UsersRepository usersRepository;
-    
+
     @Test
-    public void test_findAll() {
+    void test_findAll() {
 
         List<UserEntity> userEntityList = usersRepository.findAll();
         assertAll("findAll",
@@ -38,7 +38,7 @@ public class UsersRepositoryTest {
     }
 
     @Test
-    public void test_findByUsername() {
+    void test_findByUsername() {
         Optional<UserEntity> userEntity = usersRepository.findByUsername("nana-mizuki");
 
         assertAll("findByUsername",
@@ -50,5 +50,5 @@ public class UsersRepositoryTest {
         );
 
     }
-    
+
 }

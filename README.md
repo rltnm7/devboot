@@ -36,7 +36,7 @@
 
 ### VSCodeの拡張機能
 
-接続先での拡張機能設定を行う。  
+接続先での拡張機能設定を行う。
 - `.devcontainer/devcontainer.json`の以下を編集する。
 - 必要な拡張機能の`Identifier`を配列として記述する。
 
@@ -80,7 +80,7 @@
 
 ## コンテナの起動
 
-1. VSCodeの左下から以下アイコンをクリックし、`Open Folder in Container...`を選択  
+1. VSCodeの左下から以下アイコンをクリックし、`Open Folder in Container...`を選択
    ![remote_container_icon](images/remote_container_icon.jpg)
 2. コンテナのビルドが開始されるので、しばらく待つ
 3. VSCode内でコンテナ上のディレクトリが開かれる
@@ -113,3 +113,4 @@ java -jar target/devboot-${version}.jar
 ## Reference
 
 - [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)
+

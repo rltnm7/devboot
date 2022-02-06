@@ -17,24 +17,60 @@
     // リモート接続先で有効化するVSCode拡張機能
     // 拡張機能のDetails画面右ペイン最下部に記載されているIdentifierを指定する
     "extensions": [
+        // 環境設定
+        // Japanese Language Pack for Visual Studio Code
+        "ms-ceintl.vscode-language-pack-ja",
+
+        // Java開発
         // Extension Pack for Java
         "vscjava.vscode-java-pack",
         // Spring Boot Extension Pack
         "pivotal.vscode-boot-dev-pack",
         // Lombok Annotations Support for VS Code
         "gabrielbb.vscode-lombok",
+        
+        // フォーマッタ関連
         // SonarLint
         "sonarsource.sonarlint-vscode",
         // Checkstyle for Java
         "shengchen.vscode-checkstyle",
         // YAML
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+
+        // git関連
+        // Git Graph
+        "mhutchie.git-graph",
+        // GitLens
+        "eamodio.gitlens",
+
+        // ドキュメンテーション
+        // Markdown All in One
+        "yzhang.markdown-all-in-one",
+        // Markdown Preview Enhanced
+        "shd101wyy.markdown-preview-enhanced",
+        // Draw.io Integration
+        "hediet.vscode-drawio"
     ],
 
     // リモート接続先で上書きする基本設定 (settings.json)
     "settings": {
-        // JAVA_HOME設定のオーバーライド
-        "java.jdt.ls.java.home": "/usr/local/openjdk-17",
+        // タブサイズ調整
+        "[java]": {
+            "editor.tabSize": 4,
+        },
+        "[xml]": {
+            "editor.tabSize": 4,
+        },
+        "[yaml]": {
+            "editor.tabSize": 2,
+        },
+        "[markdown]": {
+            "editor.tabSize": 2,
+            "editor.wordWrap": "on",
+            "editor.quickSuggestions": false
+        },
+
+        // Java設定
         "java.configuration.runtimes": [
             {
                 "name":"JavaSE-17",
@@ -42,6 +78,28 @@
             }
         ],
         "spring-boot.ls.java.home": "/usr/local/openjdk-17",
+
+        // Java Language Server設定
+        "java.jdt.ls.java.home": "/usr/local/openjdk-17",
+        "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/root/.vscode-server/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+
+        // Formatter
+        "java.format.settings.profile": "GoogleStyle",
+        "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+
+        "java.checkstyle.autocheck": true,
+        "java.checkstyle.version": "9.3",
+        "java.checkstyle.configuration": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml",
+
         "sonarlint.ls.javaHome": "/usr/local/openjdk-17",
+        "sonarlint.connectedMode.project": {
+            "connectionId": "sonarcloud",       // 対応するsonarlint.connectedMode.connections.sonarcloudが必要
+            "projectKey": "rltnm7_devboot"
+        },
+
+        // GitHub Actions定義のエラー回避
+        "yaml.schemas": {
+            "https://json.schemastore.org/github-workflow.json": ".github/workflows/*"
+        }    
     }
 }

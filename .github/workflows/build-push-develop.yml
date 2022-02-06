@@ -1,13 +1,10 @@
-name: Build
+name: Build-Push-develop
+
 on:
   push:
     branches:
       - develop
-  pull_request:
-    branches:
-      - main
-      - develop
-    types: [opened, synchronize, reopened]
+
 jobs:
   build:
     name: Build

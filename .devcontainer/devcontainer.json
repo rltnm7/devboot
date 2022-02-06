@@ -37,6 +37,10 @@
         // YAML
         "redhat.vscode-yaml",
 
+        // 依存解析
+        // Dependency Analytics
+        "redhat.fabric8-analytics",
+
         // git関連
         // Git Graph
         "mhutchie.git-graph",
@@ -96,6 +100,9 @@
             "connectionId": "sonarcloud",       // 対応するsonarlint.connectedMode.connections.sonarcloudが必要
             "projectKey": "rltnm7_devboot"
         },
+
+        // Dependency Analytics
+        "maven.executable.path": "/usr/bin/mvn",
 
         // GitHub Actions定義のエラー回避
         "yaml.schemas": {

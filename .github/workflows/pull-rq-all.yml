@@ -1,10 +1,9 @@
 name: Pull-Request-ALL
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
-      - develop
     types: [opened, synchronize, reopened]
 
 jobs:
